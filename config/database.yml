@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+
+development:
+  <<: *default
+  database: Umbrellio_API_app_development
+  username: 'postgres'
+  password: 'pass'
+
+test:
+  <<: *default
+  database: Umbrellio_API_app_test
+  username: 'postgres'
+  password: 'pass'
+
+production:
+  <<: *default
+  database: Umbrellio_API_app_production
+  username: umbrellio_api_app
+  password: <%= ENV['UMBRELLIO_API_APP_DATABASE_PASSWORD'] %>

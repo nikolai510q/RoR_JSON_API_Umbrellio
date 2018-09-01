@@ -7,13 +7,13 @@ default: &default
 development:
   <<: *default
   database: Umbrellio_API_app_development
-  username: 'nikolai510q'
+  username: 'nikolai510'
   password: 'pass'
 
 test:
   <<: *default
   database: Umbrellio_API_app_test
-  username: 'nikolai510q'
+  username: 'nikolai510'
   password: 'pass'
 
 production:

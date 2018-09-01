@@ -1,7 +1,7 @@
 module Api::V1
   class PostsController < ApiController
     def index
-      render status: 200, json: Post.all
+      render status: 200, json: TopRatedPosts.new(params[:count].to_i).call
     end
 
     def create

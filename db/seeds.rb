@@ -6,12 +6,20 @@ MAX_NUMBERS_OF_RATING_FOR_POST = 10
 
 logins = []
 NUMBERS_OF_USERS.times do |t|
+<<<<<<< HEAD
   logins << Faker::Internet.unique.user_name
+=======
+  logins << Faker::Internet.user_name
+>>>>>>> feature_branch
 end
 
 author_ips = []
 NUMBERS_OF_IPS.times do |t|
+<<<<<<< HEAD
   author_ips << Faker::Internet.unique.ip_v4_address
+=======
+  author_ips << Faker::Internet.ip_v4_address
+>>>>>>> feature_branch
 end
 
 NUMBERS_OF_POSTS.times do |t|

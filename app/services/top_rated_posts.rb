@@ -5,7 +5,5 @@ class TopRatedPosts
 
   def call
     PostsQuery.new.top_rated(@count)
-      .select('id, header, body')
-      .as_json
   end
 end

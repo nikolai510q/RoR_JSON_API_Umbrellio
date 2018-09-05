@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180831181742) do
+ActiveRecord::Schema.define(version: 20180905021347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.integer   "user_id",      null: false
-    t.string    "header",       null: false
-    t.text      "body",         null: false
-    t.inet      "author_ip",    null: false
-    t.datetime  "created_at",   null: false
-    t.datetime  "updated_at",   null: false
-    t.index     ["user_id"],    name: "index_posts_on_user_id"
+    t.integer "user_id", null: false
+    t.string "header", null: false
+    t.text "body", null: false
+    t.inet "author_ip", null: false
+    t.float "avr_rating", default: 0.0
+    t.index ["avr_rating"], name: "index_posts_on_avr_rating", order: { avr_rating: :desc }
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer   "post_id",      null: false
-    t.integer   "value",        null: false
+    t.integer "post_id", null: false
+    t.integer "value", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "login",        null: false
-    t.index   ["login"],       name: "index_users_on_login"
+    t.string "login", null: false
+    t.index ["login"], name: "index_users_on_login"
   end
 
 end

@@ -12,10 +12,10 @@ class PostSerializer
     }
   end
 
-  def average_rating
+  def avr_rating
     {
      id: @post.id,
-     average_rating: @post.average_rating
+     avr_rating: @post.avr_rating
     }
   end
 

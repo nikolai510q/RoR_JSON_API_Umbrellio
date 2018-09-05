@@ -17,7 +17,7 @@ module Api::V1
     private
 
     def create_params
-      res = params.permit(:header, :body, :login)
+      res = params.permit(:header, :body, :login, :avr_rating)
       res.merge(author_ip: request.remote_ip)
     end
   end

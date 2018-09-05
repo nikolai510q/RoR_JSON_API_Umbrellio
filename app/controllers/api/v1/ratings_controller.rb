@@ -3,8 +3,8 @@ module Api::V1
     def create
       rating_errors = RatingParamsValidator.errors_for(create_params)
       if rating_errors.blank?
-        post = Post.find(RatingCreator.create_rating(create_params).try(:post_id))
-        render status: 200, json: PostSerializer.new(post).average_rating
+        post = Post.find(RatingCreator.create_rating(create_params))
+        render status: 200, json: PostSerializer.new(post).avr_rating
       else
         render status: 422, json: rating_errors
       end

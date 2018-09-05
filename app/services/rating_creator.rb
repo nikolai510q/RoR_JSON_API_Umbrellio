@@ -10,6 +10,13 @@ class RatingCreator
 
   def call
     Rating.create(post_id: @post_id,
-                  value: @value)
+                  value: @value.to_f)
+    post = Post.find(@post_id)
+    if (post.avr_rating == 0.0)
+      post.avr_rating = @value.to_f
+    else
+      post.avr_rating = (post.avr_rating.to_f + @value.to_f)/2
+    end
+    post.save
   end
 end

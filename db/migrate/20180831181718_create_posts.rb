@@ -5,7 +5,8 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.string :header, null: false
       t.text :body, null: false
       t.inet :author_ip, null: false
-      t.timestamps
+      t.float :avr_rating, default: 0
+      
     end
   end
 end
